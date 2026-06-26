@@ -1,0 +1,315 @@
+/* =============================================================================
+   Coaching Intake Form — Styles
+   Dark luxury theme. Mobile-first, no dependencies.
+   ============================================================================= */
+
+/* --- Custom Properties ---------------------------------------------------- */
+:root {
+  --bg:            #0b0b0b;
+  --surface:       #141414;
+  --surface-2:     #1c1c1c;
+  --border:        rgba(255, 255, 255, 0.07);
+  --border-focus:  #c8a96e;
+  --accent:        #c8a96e;
+  --accent-dim:    rgba(200, 169, 110, 0.12);
+  --text:          #f0ece4;
+  --text-muted:    #7a7470;
+  --text-label:    #b0a898;
+  --error:         #e05c5c;
+  --error-bg:      rgba(224, 92, 92, 0.08);
+  --success:       #5cb87a;
+  --success-bg:    rgba(92, 184, 122, 0.08);
+  --radius:        10px;
+  --radius-sm:     6px;
+  --transition:    180ms ease;
+  --font:          -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --max-width:     680px;
+}
+
+/* --- Reset ----------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* --- Base ------------------------------------------------------------------ */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100dvh;
+  padding: 2rem 1rem 4rem;
+}
+
+/* --- Layout ---------------------------------------------------------------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* --- Header ---------------------------------------------------------------- */
+.header {
+  text-align: center;
+  padding: 2rem 0 2.5rem;
+}
+
+.header h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.header h1 span {
+  color: var(--accent);
+}
+
+.subtitle {
+  margin-top: 0.625rem;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+/* --- Form sections --------------------------------------------------------- */
+.form-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+/* --- Field ----------------------------------------------------------------- */
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+/* Two-column row on wider screens */
+.row {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 480px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.row .field {
+  margin-bottom: 0;
+}
+
+/* --- Labels --------------------------------------------------------------- */
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-label);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.required {
+  color: var(--accent);
+  margin-left: 1px;
+}
+
+/* --- Inputs / Selects / Textareas ----------------------------------------- */
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  line-height: 1.5;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+/* Custom select arrow */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7470' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+select option {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Date input icon tint */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+/* Focus state */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+  background: #1f1e1c;
+}
+
+/* Invalid / error state */
+input.invalid,
+select.invalid,
+textarea.invalid {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px var(--error-bg);
+}
+
+/* --- Inline errors --------------------------------------------------------- */
+.error {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--error);
+  margin-top: 0.375rem;
+  min-height: 1.2em;
+}
+
+/* --- Submit area ----------------------------------------------------------- */
+.submit-area {
+  margin-top: 2rem;
+}
+
+#submitBtn {
+  display: block;
+  width: 100%;
+  background: var(--accent);
+  color: #0b0b0b;
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius);
+  padding: 1rem;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+  min-height: 56px;
+}
+
+#submitBtn:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+#submitBtn:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+#submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading dots animation */
+.btn-loading::after {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 50%;
+  margin-left: 8px;
+  animation: dots 1s steps(3, end) infinite;
+  vertical-align: middle;
+}
+
+@keyframes dots {
+  0%   { box-shadow: 0 0, 10px 0, 20px 0; opacity: 0.2; }
+  33%  { box-shadow: 0 0, 10px 0, 20px 0; opacity: 1; }
+  66%  { box-shadow: 0 0 #0000, 10px 0, 20px 0; opacity: 1; }
+  100% { box-shadow: 0 0 #0000, 10px 0 #0000, 20px 0; opacity: 1; }
+}
+
+/* --- Success message ------------------------------------------------------- */
+.success-message {
+  background: var(--success-bg);
+  border: 1px solid rgba(92, 184, 122, 0.2);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.success-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--success);
+  color: #0b0b0b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 1.5rem;
+}
+
+.success-message h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.success-message p {
+  color: var(--text-muted);
+}
+
+/* --- Error banner ---------------------------------------------------------- */
+.error-banner {
+  background: var(--error-bg);
+  border: 1px solid rgba(224, 92, 92, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  color: var(--error);
+  font-size: 0.9375rem;
+}
+
+/* --- Utility -------------------------------------------------------------- */
+[hidden] { display: none !important; }
