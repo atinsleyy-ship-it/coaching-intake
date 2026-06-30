@@ -2,12 +2,12 @@ const SHEET_NAME = 'Submissions';
 
 const HEADERS = [
   'Submitted At',
-  'Name',
+  'Full Name',
   'Email',
   'Phone',
   'Primary Goal',
-  'Fitness Level',
-  'Experience',
+  'Current Fitness Level',
+  'Training Experience',
   'Days per Week',
   'Preferred Split',
   'Injuries / Limitations'
@@ -38,6 +38,19 @@ function doPost(e) {
   } catch (err) {
     return jsonResponse({ status: 'error', message: err.message });
   }
+}
+
+// ── RUN ONCE ───────────────────────────────────────────────────────────────
+// Select "resetHeaders" in the Apps Script toolbar and click Run.
+// Wipes the sheet and rewrites the column names to match the current form.
+// WARNING: this clears all existing rows (fine if you only have test data).
+function resetHeaders() {
+  const sheet = getOrCreateSheet();
+  sheet.clear();
+  sheet.appendRow(HEADERS);
+  styleHeader(sheet);
+  applyColumnWidths(sheet);
+  SpreadsheetApp.flush();
 }
 
 function formatAll() {
