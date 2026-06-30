@@ -18,23 +18,52 @@
       background: #0b0b0b;
     }
 
-    /* No fixed nav in a PDF — just the wordmark up top */
+    /* Full-page flex column so content fills the whole sheet */
+    body {
+      height: 11in;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Wordmark letterhead */
     .flyer-brand {
       text-align: center;
-      padding: 2.5rem 1.5rem 0;
-      font-size: 1rem;
+      padding: 0.7in 1.5rem 0;
+      font-size: 1.125rem;
       font-weight: 600;
       letter-spacing: 0.02em;
       color: var(--text);
     }
 
-    /* Let the hero size to content instead of full viewport height */
+    /* Hero grows to fill remaining height, content vertically centered */
     .hero {
+      flex: 1;
       min-height: 0;
-      padding: 2.5rem 1.5rem 3rem;
+      padding: 0.4in 0.7in 0.7in;
+      align-items: center;
     }
 
-    .hero-photo { width: 230px; height: 230px; }
+    /* Scale everything up to occupy the page */
+    .hero-photo { width: 270px; height: 270px; margin-bottom: 1.75rem; }
+
+    .hero-eyebrow { font-size: 0.875rem; margin-bottom: 1.125rem; }
+
+    .hero-headline { font-size: 3.25rem; margin-bottom: 1.125rem; }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      max-width: 680px;
+      margin-bottom: 3.25rem;
+    }
+
+    .lists-grid { gap: 5.5rem; margin-bottom: 0; }
+
+    .row-label { font-size: 0.8125rem; margin-bottom: 1.25rem; padding-bottom: 1rem; }
+
+    .bullet-list li { font-size: 1.125rem; padding: 0.85rem 0; gap: 1rem; }
+
+    .bullet { font-size: 0.55rem; }
+    .bullet.check { font-size: 0.95rem; }
   </style>
 </head>
 <body class="landing">
