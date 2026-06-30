@@ -300,6 +300,15 @@ textarea.invalid {
   color: var(--text-muted);
 }
 
+/* Calendly embed inside success screen */
+.calendly-embed {
+  min-width: 320px;
+  height: 680px;
+  margin-top: 1.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
 /* --- Error banner ---------------------------------------------------------- */
 .error-banner {
   background: var(--error-bg);

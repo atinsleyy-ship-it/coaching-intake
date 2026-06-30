@@ -37,13 +37,11 @@ const RULES = [
     id: 'availability',
     errorId: 'availabilityError',
     validate: v => v ? null : 'Please select your availability.'
-  },
-  {
-    id: 'referral',
-    errorId: 'referralError',
-    validate: v => v ? null : 'Please select an option.'
   }
 ];
+
+// Your Calendly 15-min event link — replace YOUR-LINK with your handle
+const CALENDLY_URL = 'https://calendly.com/YOUR-LINK/15min';
 
 const form        = document.getElementById('intakeForm');
 const submitBtn   = document.getElementById('submitBtn');
@@ -85,9 +83,26 @@ function collectData() {
     experience:     document.getElementById('experience').value,
     availability:   document.getElementById('availability').value,
     preferredSplit: document.getElementById('preferredSplit').value,
-    injuries:       document.getElementById('injuries').value.trim(),
-    referral:       document.getElementById('referral').value
+    injuries:       document.getElementById('injuries').value.trim()
   };
+}
+
+// Load the Calendly inline widget, pre-filling name + email from the form
+function loadCalendly(data) {
+  const url = `${CALENDLY_URL}?hide_gdpr_banner=1`
+    + `&name=${encodeURIComponent(data.name)}`
+    + `&email=${encodeURIComponent(data.email)}`;
+  const target = document.getElementById('calendlyEmbed');
+
+  function init() {
+    if (window.Calendly) {
+      Calendly.initInlineWidget({ url, parentElement: target });
+    } else {
+      // widget.js still loading — retry shortly
+      setTimeout(init, 200);
+    }
+  }
+  init();
 }
 
 function setLoading(on) {
@@ -118,11 +133,13 @@ form.addEventListener('submit', async function (e) {
   errorBanner.hidden = true;
   setLoading(true);
 
+  const data = collectData();
+
   try {
     const response = await fetch(WEB_APP_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(collectData())
+      body: JSON.stringify(data)
     });
 
     const result = await response.json();
@@ -131,6 +148,7 @@ form.addEventListener('submit', async function (e) {
       submitted = true;
       form.hidden = true;
       successMsg.hidden = false;
+      loadCalendly(data);
       successMsg.scrollIntoView({ behavior: 'smooth' });
     } else {
       throw new Error(result.message || 'Unexpected error from server.');

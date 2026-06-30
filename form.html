@@ -6,6 +6,9 @@
   <meta name="description" content="Apply for coaching with Austin Tinsley — fill out this short intake form to get started.">
   <title>Apply for Coaching — Austin Tinsley</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Calendly assets -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
 
@@ -126,29 +129,10 @@
         </div>
       </section>
 
-      <!-- ── How'd You Find Me ─────────────────────────────────────────────── -->
-      <section class="form-section">
-        <h2 class="section-title">One More Thing</h2>
-
-        <div class="field">
-          <label for="referral">How did you hear about me? <span class="required">*</span></label>
-          <select id="referral" name="referral">
-            <option value="">Select…</option>
-            <option value="Instagram">Instagram</option>
-            <option value="Remedy Place Run Club">Remedy Place Run Club</option>
-            <option value="Word of mouth / referral">Word of mouth / referral</option>
-            <option value="Google search">Google search</option>
-            <option value="TikTok">TikTok</option>
-            <option value="Other">Other</option>
-          </select>
-          <span class="error" id="referralError" role="alert"></span>
-        </div>
-      </section>
-
       <!-- ── Submit ────────────────────────────────────────────────────────── -->
       <div class="submit-area">
         <button type="submit" id="submitBtn">
-          <span class="btn-text">Submit Application</span>
+          <span class="btn-text">Submit &amp; Book Consult</span>
           <span class="btn-loading" hidden>Submitting</span>
         </button>
       </div>
@@ -157,8 +141,9 @@
 
     <div id="successMessage" class="success-message" hidden aria-live="polite">
       <div class="success-icon" aria-hidden="true">&#10003;</div>
-      <h2>Application Received</h2>
-      <p>Thank you! I'll review your information and reach out within 24 hours.</p>
+      <h2>One last step</h2>
+      <p>Thanks! Now pick a time for your free 15-minute consult — we'll talk through your goals and next steps.</p>
+      <div id="calendlyEmbed" class="calendly-embed"></div>
     </div>
 
     <div id="errorBanner" class="error-banner" hidden role="alert">

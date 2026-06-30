@@ -10,11 +10,10 @@ const HEADERS = [
   'Experience',
   'Days per Week',
   'Preferred Split',
-  'Injuries / Limitations',
-  'How They Heard'
+  'Injuries / Limitations'
 ];
 
-const COL_WIDTHS = [160, 160, 220, 130, 180, 200, 180, 110, 160, 260, 180];
+const COL_WIDTHS = [160, 160, 220, 130, 180, 200, 180, 110, 160, 260];
 
 const ROW_ODD  = '#f9f7f4';
 const ROW_EVEN = '#ffffff';
@@ -122,8 +121,7 @@ function appendRow(sheet, data) {
     data.experience     || '',
     data.availability   || '',
     data.preferredSplit || '',
-    data.injuries       || '',
-    data.referral       || ''
+    data.injuries       || ''
   ]);
 }
 
