@@ -431,11 +431,11 @@ body.landing {
 }
 
 .hero-photo {
-  width: 230px;
-  height: 230px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 42%;
   border: 2px solid var(--accent);
   padding: 5px;
   background: var(--bg);
