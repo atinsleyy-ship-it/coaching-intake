@@ -1,9 +1,3 @@
-// =============================================================================
-// Coaching Intake Form — Google Apps Script Backend
-// Deploy as: Extensions > Apps Script > Deploy > New Deployment > Web App
-// Execute as: Me | Who has access: Anyone
-// =============================================================================
-
 const SHEET_NAME = 'Submissions';
 
 const HEADERS = [
@@ -11,38 +5,24 @@ const HEADERS = [
   'Name',
   'Email',
   'Phone',
-  'Age',
-  'Biological Sex',
-  'Height',
-  'Weight (lbs)',
   'Primary Goal',
+  'Fitness Level',
   'Experience',
   'Days per Week',
   'Preferred Split',
   'Injuries / Limitations',
-  'Current Diet',
-  'Water per Day',
-  'Alcohol per Week',
-  'Start Date'
+  'How They Heard'
 ];
 
-// Column widths (pixels) matched to each header above
-const COL_WIDTHS = [160, 160, 220, 130, 60, 110, 80, 100, 160, 180, 110, 160, 260, 160, 110, 110, 110];
+const COL_WIDTHS = [160, 160, 220, 130, 180, 200, 180, 110, 160, 260, 180];
 
-// Stripe colors for alternating rows
-const ROW_ODD  = '#f9f7f4'; // warm off-white
-const ROW_EVEN = '#ffffff'; // white
+const ROW_ODD  = '#f9f7f4';
+const ROW_EVEN = '#ffffff';
 
-// ---------------------------------------------------------------------------
-// GET — health check
-// ---------------------------------------------------------------------------
 function doGet(e) {
   return jsonResponse({ status: 'ok', message: 'Coaching intake endpoint is live.' });
 }
 
-// ---------------------------------------------------------------------------
-// POST — receives JSON and appends a formatted row
-// ---------------------------------------------------------------------------
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
@@ -61,34 +41,20 @@ function doPost(e) {
   }
 }
 
-// ---------------------------------------------------------------------------
-// RUN THIS ONCE — call formatAll() from the Apps Script editor to style
-// all existing rows in the sheet. Go to the editor, select "formatAll"
-// from the function dropdown, and click Run.
-// ---------------------------------------------------------------------------
 function formatAll() {
   const sheet = getOrCreateSheet();
   const lastRow = sheet.getLastRow();
-
   if (lastRow < 1) return;
 
-  // Re-apply the header
   styleHeader(sheet);
 
-  // Style every data row
   for (let row = 2; row <= lastRow; row++) {
     formatDataRow(sheet, row);
   }
 
-  // Apply column widths
   applyColumnWidths(sheet);
-
   SpreadsheetApp.flush();
 }
-
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
 
 function getOrCreateSheet() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -99,7 +65,6 @@ function getOrCreateSheet() {
 
 function ensureHeaders(sheet) {
   if (sheet.getLastRow() > 0) return;
-
   sheet.appendRow(HEADERS);
   styleHeader(sheet);
   applyColumnWidths(sheet);
@@ -112,7 +77,7 @@ function styleHeader(sheet) {
   range.setFontSize(10);
   range.setFontFamily('Arial');
   range.setFontColor('#ffffff');
-  range.setBackground('#1a1a2e');        // deep navy — matches the form aesthetic
+  range.setBackground('#1a1a2e');
   range.setHorizontalAlignment('left');
   range.setVerticalAlignment('middle');
   range.setWrapStrategy(SpreadsheetApp.WrapStrategy.CLIP);
@@ -135,12 +100,8 @@ function formatDataRow(sheet, row) {
   range.setVerticalAlignment('middle');
   range.setHorizontalAlignment('left');
 
-  // Wrap long text columns (Injuries, Goal, Diet)
-  const wrapCols = [9, 13, 14]; // 1-indexed: primaryGoal, injuries, currentDiet
-  wrapCols.forEach(col => {
-    sheet.getRange(row, col).setWrapStrategy(SpreadsheetApp.WrapStrategy.WRAP);
-  });
-
+  // Wrap injuries column (col 10)
+  sheet.getRange(row, 10).setWrapStrategy(SpreadsheetApp.WrapStrategy.WRAP);
   sheet.setRowHeight(row, 28);
 }
 
@@ -156,19 +117,13 @@ function appendRow(sheet, data) {
     data.name           || '',
     data.email          || '',
     data.phone          || '',
-    data.age            || '',
-    data.biologicalSex  || '',
-    data.height         || '',
-    data.weight         || '',
     data.primaryGoal    || '',
+    data.fitnessLevel   || '',
     data.experience     || '',
-    data.daysPerWeek    || '',
+    data.availability   || '',
     data.preferredSplit || '',
     data.injuries       || '',
-    data.currentDiet    || '',
-    data.waterPerDay    || '',
-    data.alcoholPerWeek || '',
-    data.startDate      || ''
+    data.referral       || ''
   ]);
 }
 

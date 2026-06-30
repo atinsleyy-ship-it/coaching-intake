@@ -313,3 +313,332 @@ textarea.invalid {
 
 /* --- Utility -------------------------------------------------------------- */
 [hidden] { display: none !important; }
+
+/* =============================================================================
+   Landing Page Styles
+   ============================================================================= */
+
+/* Nav */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 1.5rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: rgba(11, 11, 11, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-tag {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #0b0b0b;
+  font-family: var(--font);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+  white-space: nowrap;
+}
+
+.btn:hover { opacity: 0.88; }
+.btn:active { transform: scale(0.98); }
+
+.btn-sm {
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  font-size: 0.9375rem;
+  padding: 1rem 2rem;
+}
+
+/* Landing body offset for fixed nav */
+body.landing {
+  padding: 0;
+}
+
+/* Hero */
+.hero {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding: 7rem 1.5rem 5rem;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(200, 169, 110, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.hero-headline {
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--text-muted);
+  max-width: 460px;
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+}
+
+.accent { color: var(--accent); }
+
+/* Sections */
+.section {
+  padding: 6rem 1.5rem;
+}
+
+.section-alt {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section .container {
+  max-width: 1100px;
+}
+
+.section-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.section-heading {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin-bottom: 3rem;
+  line-height: 1.15;
+}
+
+/* Credentials grid */
+.cred-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .cred-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.cred-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+}
+
+.cred-icon {
+  color: var(--accent);
+  font-size: 0.625rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.cred-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.625rem;
+  letter-spacing: -0.01em;
+}
+
+.cred-card p {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Offer list */
+.offer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.offer-item {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.offer-item:first-child { border-top: 1px solid var(--border); }
+
+.offer-num {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  padding-top: 0.25rem;
+  flex-shrink: 0;
+  min-width: 2rem;
+}
+
+.offer-item h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.375rem;
+  letter-spacing: -0.01em;
+}
+
+.offer-item p {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 4rem;
+}
+
+.step {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+}
+
+.step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.375rem;
+  letter-spacing: -0.01em;
+}
+
+.step p {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.step-divider {
+  width: 1px;
+  height: 2.5rem;
+  background: var(--border);
+  margin-left: 17px;
+}
+
+/* CTA block */
+.cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.cta-note {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.footer {
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer .container {
+  max-width: 1100px;
+}
+
+.footer p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Form page nav offset */
+body:not(.landing) {
+  padding-top: 80px;
+}
+
+.form-page {
+  padding-bottom: 4rem;
+}
+
+.form-page .header {
+  padding-top: 2rem;
+}

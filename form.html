@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apply for coaching with Austin Tinsley — fill out this short intake form to get started.">
+  <title>Apply for Coaching — Austin Tinsley</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Austin Tinsley</a>
+      <span class="nav-tag">Application</span>
+    </div>
+  </nav>
+
+  <main class="container form-page">
+
+    <header class="header">
+      <h1>Apply for <span class="accent">Coaching</span></h1>
+      <p class="subtitle">Fill out the form below and I'll be in touch within 24 hours.</p>
+    </header>
+
+    <form id="intakeForm" novalidate>
+
+      <!-- ── Personal Information ──────────────────────────────────────────── -->
+      <section class="form-section">
+        <h2 class="section-title">Personal Information</h2>
+
+        <div class="field">
+          <label for="name">Full Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name"
+            placeholder="Jane Smith" autocomplete="name">
+          <span class="error" id="nameError" role="alert"></span>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email"
+              placeholder="jane@example.com" autocomplete="email">
+            <span class="error" id="emailError" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone"
+              placeholder="(555) 000-0000" autocomplete="tel">
+            <span class="error" id="phoneError" role="alert"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Goals & Background ────────────────────────────────────────────── -->
+      <section class="form-section">
+        <h2 class="section-title">Goals &amp; Background</h2>
+
+        <div class="field">
+          <label for="primaryGoal">Primary Goal <span class="required">*</span></label>
+          <select id="primaryGoal" name="primaryGoal">
+            <option value="">Select…</option>
+            <option value="Lose fat">Lose fat</option>
+            <option value="Build muscle">Build muscle</option>
+            <option value="Improve strength">Improve strength</option>
+            <option value="Improve endurance / running">Improve endurance / running</option>
+            <option value="Body recomposition">Body recomposition</option>
+            <option value="General fitness">General fitness</option>
+          </select>
+          <span class="error" id="primaryGoalError" role="alert"></span>
+        </div>
+
+        <div class="field">
+          <label for="fitnessLevel">Current Fitness Level <span class="required">*</span></label>
+          <select id="fitnessLevel" name="fitnessLevel">
+            <option value="">Select…</option>
+            <option value="Beginner — new to structured training">Beginner — new to structured training</option>
+            <option value="Intermediate — training 1–3 years">Intermediate — training 1–3 years</option>
+            <option value="Advanced — training 3+ years">Advanced — training 3+ years</option>
+            <option value="Athlete — competitive background">Athlete — competitive background</option>
+          </select>
+          <span class="error" id="fitnessLevelError" role="alert"></span>
+        </div>
+
+        <div class="field">
+          <label for="experience">Training Experience <span class="required">*</span></label>
+          <select id="experience" name="experience">
+            <option value="">Select…</option>
+            <option value="Beginner (0–1 years)">Beginner (0–1 years)</option>
+            <option value="Intermediate (1–3 years)">Intermediate (1–3 years)</option>
+            <option value="Advanced (3+ years)">Advanced (3+ years)</option>
+          </select>
+          <span class="error" id="experienceError" role="alert"></span>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="availability">Days per Week <span class="required">*</span></label>
+            <select id="availability" name="availability">
+              <option value="">Select…</option>
+              <option value="2 days / week">2 days</option>
+              <option value="3 days / week">3 days</option>
+              <option value="4 days / week">4 days</option>
+              <option value="5 days / week">5 days</option>
+              <option value="6+ days / week">6+ days</option>
+            </select>
+            <span class="error" id="availabilityError" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="preferredSplit">Preferred Split</label>
+            <select id="preferredSplit" name="preferredSplit">
+              <option value="">Select…</option>
+              <option value="Full body">Full body</option>
+              <option value="Upper / Lower">Upper / Lower</option>
+              <option value="Push / Pull / Legs">Push / Pull / Legs</option>
+              <option value="Bro split">Bro split</option>
+              <option value="No preference">No preference</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="injuries">Injuries / Limitations</label>
+          <textarea id="injuries" name="injuries" rows="3"
+            placeholder="Describe any injuries, chronic pain, or physical limitations…"></textarea>
+        </div>
+      </section>
+
+      <!-- ── How'd You Find Me ─────────────────────────────────────────────── -->
+      <section class="form-section">
+        <h2 class="section-title">One More Thing</h2>
+
+        <div class="field">
+          <label for="referral">How did you hear about me? <span class="required">*</span></label>
+          <select id="referral" name="referral">
+            <option value="">Select…</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Remedy Place Run Club">Remedy Place Run Club</option>
+            <option value="Word of mouth / referral">Word of mouth / referral</option>
+            <option value="Google search">Google search</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Other">Other</option>
+          </select>
+          <span class="error" id="referralError" role="alert"></span>
+        </div>
+      </section>
+
+      <!-- ── Submit ────────────────────────────────────────────────────────── -->
+      <div class="submit-area">
+        <button type="submit" id="submitBtn">
+          <span class="btn-text">Submit Application</span>
+          <span class="btn-loading" hidden>Submitting</span>
+        </button>
+      </div>
+
+    </form>
+
+    <div id="successMessage" class="success-message" hidden aria-live="polite">
+      <div class="success-icon" aria-hidden="true">&#10003;</div>
+      <h2>Application Received</h2>
+      <p>Thank you! I'll review your information and reach out within 24 hours.</p>
+    </div>
+
+    <div id="errorBanner" class="error-banner" hidden role="alert">
+      <p id="errorText">Something went wrong. Please try again.</p>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
