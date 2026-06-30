@@ -421,6 +421,19 @@ body.landing {
   position: relative;
 }
 
+.hero-photo {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 18%;
+  border: 2px solid var(--accent);
+  padding: 4px;
+  background: var(--bg);
+  margin: 0 auto 1.5rem;
+  display: block;
+}
+
 .hero-eyebrow {
   font-size: 0.75rem;
   font-weight: 600;
