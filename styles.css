@@ -397,7 +397,6 @@ body.landing {
 
 /* Hero */
 .hero {
-  min-height: 100dvh;
   display: flex;
   align-items: center;
   padding: 7rem 1.5rem 5rem;
@@ -628,6 +627,26 @@ body.landing {
 .footer p {
   font-size: 0.875rem;
   color: var(--text-muted);
+}
+
+/* Hero benefits — compact, no descriptions */
+.hero-benefits {
+  margin: 2rem 0 2.5rem;
+}
+
+.hero-benefits .benefit-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-benefits .benefit-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.hero-benefits .benefit-item h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
 }
 
 /* Photo section */
