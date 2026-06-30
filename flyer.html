@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Austin Tinsley — Resident Performance Coach</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Print / PDF overrides ─────────────────────────────────────────── */
+    @page {
+      size: 8.5in 11in;
+      margin: 0;
+    }
+
+    html, body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      background: #0b0b0b;
+    }
+
+    /* No fixed nav in a PDF — just the wordmark up top */
+    .flyer-brand {
+      text-align: center;
+      padding: 2.5rem 1.5rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+
+    /* Let the hero size to content instead of full viewport height */
+    .hero {
+      min-height: 0;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .hero-photo { width: 230px; height: 230px; }
+  </style>
+</head>
+<body class="landing">
+
+  <div class="flyer-brand">Austin Tinsley</div>
+
+  <!-- ── One-pager hero ────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="onepager">
+
+      <!-- Intro -->
+      <img src="austin.jpg" alt="Austin Tinsley" class="hero-photo">
+      <p class="hero-eyebrow">Resident Performance Coach</p>
+      <h1 class="hero-headline">Austin Tinsley</h1>
+      <p class="hero-sub">
+        <span class="accent">Your fitness, your building.</span> Helping residents build strength, lose fat, improve endurance, and feel their best — all without leaving home.
+      </p>
+
+      <!-- Two columns -->
+      <div class="lists-grid">
+
+        <!-- Left: Meet Your Coach -->
+        <div class="list-col">
+          <p class="row-label">Meet Your Coach</p>
+          <ul class="bullet-list">
+            <li><span class="bullet">&#9670;</span>NFPT Certified</li>
+            <li><span class="bullet">&#9670;</span>8 Years of Experience</li>
+            <li><span class="bullet">&#9670;</span>Former D1 Sprinter</li>
+            <li><span class="bullet">&#9670;</span>Remedy Place Run Club Leader</li>
+            <li><span class="bullet">&#9670;</span>145K+ Fitness Community</li>
+          </ul>
+        </div>
+
+        <!-- Right: What You Get -->
+        <div class="list-col">
+          <p class="row-label">What You Get</p>
+          <ul class="bullet-list">
+            <li><span class="bullet check">&#10003;</span>Personalized Fitness Assessment</li>
+            <li><span class="bullet check">&#10003;</span>Customized Training Plan</li>
+            <li><span class="bullet check">&#10003;</span>Nutrition Guidance</li>
+            <li><span class="bullet check">&#10003;</span>Accountability</li>
+            <li><span class="bullet check">&#10003;</span>Training in Your Building's Gym</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
