@@ -105,6 +105,31 @@ function loadCalendly(data) {
   init();
 }
 
+// When the user finishes booking in Calendly, replace the embed with our own
+// confirmation page instead of leaving them stuck on Calendly's screen.
+function isCalendlyEvent(e) {
+  return e.origin === 'https://calendly.com'
+    && e.data
+    && typeof e.data.event === 'string'
+    && e.data.event.indexOf('calendly.') === 0;
+}
+
+window.addEventListener('message', function (e) {
+  if (isCalendlyEvent(e) && e.data.event === 'calendly.event_scheduled') {
+    showBooked();
+  }
+});
+
+function showBooked() {
+  successMsg.innerHTML =
+    '<div class="success-icon" aria-hidden="true">&#10003;</div>'
+    + '<h2>You\'re all set!</h2>'
+    + '<p>Your consult is booked and a calendar invite is on its way to your inbox. '
+    + 'Talk soon.</p>'
+    + '<a href="/" class="btn btn-lg booked-btn">Back to Home</a>';
+  successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
 function setLoading(on) {
   submitBtn.disabled = on;
   btnText.hidden     = on;

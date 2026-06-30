@@ -309,6 +309,11 @@ textarea.invalid {
   overflow: hidden;
 }
 
+.booked-btn {
+  display: inline-block;
+  margin-top: 1.75rem;
+}
+
 /* --- Error banner ---------------------------------------------------------- */
 .error-banner {
   background: var(--error-bg);
