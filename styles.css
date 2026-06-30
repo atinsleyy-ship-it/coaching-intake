@@ -395,30 +395,30 @@ body.landing {
   padding: 0;
 }
 
-/* Hero */
+/* Hero — centered one-pager */
 .hero {
   min-height: 100dvh;
   display: flex;
   align-items: center;
-  padding: 5rem 1.5rem 3rem;
+  justify-content: center;
+  padding: 5rem 1.5rem 2.5rem;
   position: relative;
 }
 
-.hero-grid {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 45% at 50% 20%, rgba(200, 169, 110, 0.06) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-@media (min-width: 800px) {
-  .hero-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
+.onepager {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
 }
 
 .hero-eyebrow {
@@ -427,73 +427,108 @@ body.landing {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1rem;
+  margin-bottom: 0.875rem;
 }
 
 .hero-headline {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
   color: var(--text);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.875rem;
 }
 
 .hero-sub {
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  line-height: 1.65;
-  margin-bottom: 0;
-}
-
-/* Right column */
-.hero-right-heading {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--text);
-  margin-bottom: 0.75rem;
-  margin-top: 0;
-}
-
-.cred-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.cred-row {
-  display: flex;
-  gap: 0.875rem;
-  align-items: center;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.cred-row:first-child {
-  border-top: 1px solid var(--border);
-}
-
-.cred-dot {
-  color: var(--accent);
-  font-size: 0.5rem;
-  margin-top: 6px;
-  flex-shrink: 0;
-}
-
-.cred-row h3 {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 0;
-}
-
-.cred-row p {
-  display: none;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 auto 2.75rem;
 }
 
 .accent { color: var(--accent); }
+
+/* Row label above each card row */
+.row-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.125rem;
+}
+
+/* Uniform card rows */
+.card-row {
+  display: grid;
+  gap: 1rem;
+  margin: 0 auto 2.75rem;
+}
+
+/* Equal card widths across both rows */
+.cols-5 { grid-template-columns: repeat(5, 1fr); max-width: 1060px; }
+.cols-4 { grid-template-columns: repeat(4, 1fr); max-width: 845px; }
+
+.info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+  min-height: 132px;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.info-card:hover {
+  border-color: rgba(200, 169, 110, 0.35);
+  transform: translateY(-2px);
+}
+
+.info-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-radius: 50%;
+  font-size: 0.875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.info-card h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.hero-btn {
+  margin-top: 0.25rem;
+}
+
+/* Responsive — keep symmetry as it stacks */
+@media (max-width: 860px) {
+  .cols-5, .cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 460px) {
+  .cols-5, .cols-4 {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
 
 /* Sections */
 .section {
