@@ -431,29 +431,30 @@ body.landing {
 }
 
 .hero-headline {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .hero-sub {
   font-size: 0.9375rem;
   color: var(--text-muted);
   line-height: 1.65;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 /* Right column */
 .hero-right-heading {
-  font-size: 1.375rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.15;
   color: var(--text);
-  margin-bottom: 1.5rem;
-  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 0;
 }
 
 .cred-stack {
@@ -464,9 +465,9 @@ body.landing {
 
 .cred-row {
   display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 1rem 0;
+  gap: 0.875rem;
+  align-items: center;
+  padding: 0.75rem 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -483,15 +484,13 @@ body.landing {
 
 .cred-row h3 {
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0;
 }
 
 .cred-row p {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+  display: none;
 }
 
 .accent { color: var(--accent); }
@@ -686,12 +685,16 @@ body.landing {
   color: var(--text-muted);
 }
 
-/* Hero benefits — compact, no descriptions */
+/* Hero benefits — matches cred-row style */
 .hero-benefits {
-  margin: 2rem 0 2.5rem;
+  margin: 1.5rem 0 2rem;
+  list-style: none;
 }
 
 .hero-benefits .benefit-item {
+  display: flex;
+  gap: 0.875rem;
+  align-items: center;
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--border);
 }
@@ -700,10 +703,24 @@ body.landing {
   border-top: 1px solid var(--border);
 }
 
+.hero-benefits .benefit-check {
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--accent);
+  border-radius: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0;
+  display: inline;
+}
+
 .hero-benefits .benefit-item h3 {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: var(--text);
+  margin: 0;
 }
 
 /* Photo section */
