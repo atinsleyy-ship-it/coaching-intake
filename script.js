@@ -40,8 +40,8 @@ const RULES = [
   }
 ];
 
-// Your Calendly 15-min event link — replace YOUR-LINK with your handle
-const CALENDLY_URL = 'https://calendly.com/YOUR-LINK/15min';
+// Your Calendly consult event link
+const CALENDLY_URL = 'https://calendly.com/booktinsley/30min';
 
 const form        = document.getElementById('intakeForm');
 const submitBtn   = document.getElementById('submitBtn');
