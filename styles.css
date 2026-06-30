@@ -422,8 +422,8 @@ body.landing {
 }
 
 .hero-photo {
-  width: 390px;
-  height: 390px;
+  width: 195px;
+  height: 195px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center 18%;
