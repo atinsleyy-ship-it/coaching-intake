@@ -422,15 +422,15 @@ body.landing {
 }
 
 .hero-photo {
-  width: 132px;
-  height: 132px;
+  width: 390px;
+  height: 390px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center 18%;
   border: 2px solid var(--accent);
-  padding: 4px;
+  padding: 5px;
   background: var(--bg);
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 1.25rem;
   display: block;
 }
 
